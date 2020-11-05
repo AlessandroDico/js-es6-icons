@@ -86,15 +86,17 @@ $(document).ready(function(){
     }
 ];
 
-// Utilizzando la funzione forEach e il template literal, visualizzare in pagina tutte le icone con il proprio nome.
+// Utilizzando la funzione forEach e il template literal, visualizzare in pagina tutte le icone
+//aggiungere ad ognuna il proprio nome.
 
 icons.forEach( (singleIcon) => {
     console.log(singleIcon.name);
     const {name, prefix, family} = singleIcon;
-
+    // console.log(name);
     $('.icons-container').append(`
     <div>
         <i class="${family} ${prefix}${name}"></i>
+        <p>${name}</p>
     </div>
         `);
 });
@@ -106,6 +108,7 @@ icons.forEach( (singleIcon) => {
     $('.icons-container').append(`
     <div>
         <i class="singleIcon.family singleIcon.prefixsingleIcon.name"></i>
+        <p>singleIcon.name</p>
     </div>
         `);
 });
