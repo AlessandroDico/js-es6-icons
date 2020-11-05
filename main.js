@@ -143,6 +143,8 @@ icons.forEach((item) => {
     // console.log(item.type);
     if (!iconsType.includes(item.type)) {
         iconsType.push(item.type);
+        // Popolare le options della select dinamicamente
+        //lo faccio qua per avere solo tre type all'interno del select
         $('.select').append(`
         <option class="option">${item.type}</option>
         `);
@@ -151,8 +153,17 @@ icons.forEach((item) => {
 
 console.log(iconsType);
 
+// ogni volta che cambia il valore selezionato visualizzare le icone corrispondenti.
+// quindi quando seleziono es. il tipo animali dovro' vedere solo gli animali
+//questo non si fa con il click ma con un altra funzione change
+// quando seleziono un type dovro' cancellare tutte le icone dalla pagina e visualizzare solo quelle del type selezionato
+//per togliere le icone dalla pagina basta che svuoto .empty() il container delle icone
+//poi dovro' aggiungere quelle del type giusto... come?
 
-
+$('.select').change(() => {
+    console.log('funziona');
+    $('.single-icon-container').empty();
+});
 
 
 
@@ -195,7 +206,7 @@ icons.forEach( (singleIcon) => {
 });
 
 
-// Popolare le options della select dinamicamente
+
 
 
 
