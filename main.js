@@ -9,6 +9,14 @@ literal, visualizzare in pagina tutte le icone con il
 proprio nome.
 */
 
+/*
+milestone 2:
+definire un array di colori e associare ad ogni
+tipo di icona un colore.
+Visualizzare le icone di colore diverso in base al
+tipo.
+*/
+
 $(document).ready(function(){
 
 
@@ -113,5 +121,9 @@ icons.forEach( (singleIcon) => {
         `);
 });
 */
+
+// definire un array di colori
+
+const iconsColors = ['green', 'orange', 'purple'];
 
 });
