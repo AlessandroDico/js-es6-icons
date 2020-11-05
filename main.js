@@ -94,7 +94,7 @@ icons.forEach( (singleIcon) => {
     const {name, prefix, family} = singleIcon;
     // console.log(name);
     $('.icons-container').append(`
-    <div>
+    <div class="single-icon-container">
         <i class="${family} ${prefix}${name}"></i>
         <p>${name}</p>
     </div>
