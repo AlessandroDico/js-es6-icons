@@ -146,7 +146,7 @@ icons.forEach((item) => {
         // Popolare le options della select dinamicamente
         //lo faccio qua per avere solo tre type all'interno del select
         $('.select').append(`
-        <option class="option">${item.type}</option>
+        <option class="option" value="${item.type}">${item.type}</option>
         `);
     }
 });
@@ -160,12 +160,70 @@ console.log(iconsType);
 //per togliere le icone dalla pagina basta che svuoto .empty() il container delle icone
 //poi dovro' aggiungere quelle del type giusto... come?
 
+
+
+//----------------SOLUZIONE SIMILE QUELLA IN CLASSE------------
 $('.select').change(() => {
-    console.log('funziona');
-    $('.single-icon-container').empty();
+
+    // devo sapere cos'ha selezionato l'utente e lo faccio tramite il valore dell'oggetto
+    const itemSelected = $('.select').val();
+    console.log(itemSelected);
+
+    // al cambio svuoto prima tutto il contenitore delle icone per poi mostrare solo quelle che vuole l'user
+    $('.icons-container').empty();
+
+    // scrivo itemSelected che dovrebbe essere uguale a scrivere == true (quindi ha selezionato qualcosa)
+    if(itemSelected) {
+        // creo una variabile per estrarre le icone scelte dall'user
+        //le prendo dall'array icons e le filtro affinche' mi restituiscano solo quelle selezionate
+        const iconShowed = icons.filter((item) => {
+            return itemSelected == item.type;
+        });
+        // stampo le icone corrispondenti al tipo scelto dall'utente
+        iconShowed.forEach((item) => {
+            const {name, prefix, family} = item;
+
+                const typePosition = iconsType.indexOf(item.type);
+                // console.log(typePosition);
+
+                colorPosition = iconsColors[typePosition];
+                // console.log(colorPosition);
+
+            // console.log(singleIcon.name);
+            // console.log(name);
+
+            $('.icons-container').append(`
+            <div class="single-icon-container">
+                <i class="${family} ${prefix}${name}" style="color:${colorPosition}"></i>
+                <p>${name}</p>
+            </div>
+                `);
+        });
+    } else {
+        // se non è entrato nell if vuol dire che è su all types quindi visualizzo tutte le icone
+
+    icons.forEach( (singleIcon) => {
+        const {name, prefix, family} = singleIcon;
+
+            const typePosition = iconsType.indexOf(singleIcon.type);
+            // console.log(typePosition);
+
+            colorPosition = iconsColors[typePosition];
+            // console.log(colorPosition);
+
+        // console.log(singleIcon.name);
+        // console.log(name);
+
+        $('.icons-container').append(`
+        <div class="single-icon-container">
+            <i class="${family} ${prefix}${name}" style="color:${colorPosition}"></i>
+            <p>${name}</p>
+        </div>
+            `);
+    });
+    }
+
 });
-
-
 
 
 
