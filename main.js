@@ -20,7 +20,7 @@ tipo.
 $(document).ready(function(){
 
 
-    console.log('hello');
+    // console.log('hello');
 
     // definire un array di oggetti
 
@@ -98,7 +98,7 @@ $(document).ready(function(){
 //aggiungere ad ognuna il proprio nome.
 
 icons.forEach( (singleIcon) => {
-    console.log(singleIcon.name);
+    // console.log(singleIcon.name);
     const {name, prefix, family} = singleIcon;
     // console.log(name);
     $('.icons-container').append(`
@@ -123,7 +123,32 @@ icons.forEach( (singleIcon) => {
 */
 
 // definire un array di colori
-
+//un colore per ogni tipo di icona
 const iconsColors = ['green', 'orange', 'purple'];
+
+// associare ad ogni tipo di icona un colore.
+//devo ricavarmi i tipi di icona
+//dovro' ciclare l'array di oggetti ed estrarre solo i tipi
+//per estrarre una sola volta ogni tipo posso fare un array e pushare dentro ogi volta che c'è un tipo nuovo
+const iconsType = [];
+icons.forEach((item, i) => {
+    console.log(item.type);
+    if (!iconsType.includes(item.type)) {
+        iconsType.push(item.type);
+    }
+});
+
+console.log(iconsType);
+
+
+
+
+
+
+
+
+
+
+
 
 });
