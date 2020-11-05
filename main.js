@@ -97,17 +97,21 @@ $(document).ready(function(){
 // Utilizzando la funzione forEach e il template literal, visualizzare in pagina tutte le icone
 //aggiungere ad ognuna il proprio nome.
 
-icons.forEach( (singleIcon) => {
-    // console.log(singleIcon.name);
-    const {name, prefix, family} = singleIcon;
-    // console.log(name);
-    $('.icons-container').append(`
-    <div class="single-icon-container">
-        <i class="${family} ${prefix}${name}"></i>
-        <p>${name}</p>
-    </div>
-        `);
-});
+// --------------------------SPOSTATO PIU' IN BASSO PER 'LEGGERE' I COLORI---- ---------------
+// icons.forEach( (singleIcon) => {
+//     // console.log(singleIcon.name);
+//     const {name, prefix, family} = singleIcon;
+//     // console.log(name);
+//     $('.icons-container').append(`
+//     <div class="single-icon-container">
+//         <i class="${family} ${prefix}${name}" style="color:${colorPosition}"></i>
+//         <p>${name}</p>
+//     </div>
+//         `);
+// });
+// --------------------------SPOSTATO PIU' IN BASSO PER 'LEGGERE' I COLORI---- ---------------
+
+
 
 /*
 icons.forEach( (singleIcon) => {
@@ -131,8 +135,9 @@ const iconsColors = ['green', 'orange', 'purple'];
 //dovro' ciclare l'array di oggetti ed estrarre solo i tipi
 //per estrarre una sola volta ogni tipo posso fare un array e pushare dentro ogi volta che c'è un tipo nuovo
 const iconsType = [];
-icons.forEach((item, i) => {
-    console.log(item.type);
+
+icons.forEach((item) => {
+    // console.log(item.type);
     if (!iconsType.includes(item.type)) {
         iconsType.push(item.type);
     }
@@ -140,6 +145,28 @@ icons.forEach((item, i) => {
 
 console.log(iconsType);
 
+//dato che i tipi sono tre e i colori sono tre ed entrambi sono dentro a degli array trovero' la corrispondenza tramite index
+// attenzione.. il collegamento item/colore va fatto dentro il ciclo che poi dara' il colore in pagina alle icone
+
+icons.forEach( (singleIcon) => {
+    const {name, prefix, family} = singleIcon;
+
+        const typePosition = iconsType.indexOf(singleIcon.type);
+        // console.log(typePosition);
+
+        colorPosition = iconsColors[typePosition];
+        // console.log(colorPosition);
+
+    // console.log(singleIcon.name);
+    // console.log(name);
+    $('.icons-container').append(`
+    <div class="single-icon-container">
+        <i class="${family} ${prefix}${name}" style="color:${colorPosition}"></i>
+        <p>${name}</p>
+    </div>
+        `);
+
+});
 
 
 
