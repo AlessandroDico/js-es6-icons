@@ -17,6 +17,18 @@ Visualizzare le icone di colore diverso in base al
 tipo.
 */
 
+/*
+milestone 3:
+aggiungere una select per filtrare le icone in base al tipo.
+//AGGIUNGERE IN HTML UNA SELECT CON DELLE OPTIONS
+
+Popolare le options della select dinamicamente
+//VOL DIRE AGGIUNGERE LE OPTIONS DAL JS E NON IN HTML
+
+ogni volta che cambia il valore selezionato,
+visualizzare le icone corrispondenti.
+*/
+
 $(document).ready(function(){
 
 
