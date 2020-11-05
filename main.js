@@ -23,7 +23,7 @@ aggiungere una select per filtrare le icone in base al tipo.
 //AGGIUNGERE IN HTML UNA SELECT CON DELLE OPTIONS
 
 Popolare le options della select dinamicamente
-//VOL DIRE AGGIUNGERE LE OPTIONS DAL JS E NON IN HTML
+//VUOL DIRE AGGIUNGERE LE OPTIONS DAL JS E NON IN HTML
 
 ogni volta che cambia il valore selezionato,
 visualizzare le icone corrispondenti.
@@ -125,18 +125,9 @@ $(document).ready(function(){
 
 
 
-/*
-icons.forEach( (singleIcon) => {
-    console.log(singleIcon.name);
 
-    $('.icons-container').append(`
-    <div>
-        <i class="singleIcon.family singleIcon.prefixsingleIcon.name"></i>
-        <p>singleIcon.name</p>
-    </div>
-        `);
-});
-*/
+
+
 
 // definire un array di colori
 //un colore per ogni tipo di icona
@@ -152,10 +143,20 @@ icons.forEach((item) => {
     // console.log(item.type);
     if (!iconsType.includes(item.type)) {
         iconsType.push(item.type);
+        $('.select').append(`
+        <option class="option">${item.type}</option>
+        `);
     }
 });
 
 console.log(iconsType);
+
+
+
+
+
+
+
 
 //dato che i tipi sono tre e i colori sono tre ed entrambi sono dentro a degli array trovero' la corrispondenza tramite index
 // attenzione.. il collegamento item/colore va fatto dentro il ciclo che poi dara' il colore in pagina alle icone
@@ -171,6 +172,7 @@ icons.forEach( (singleIcon) => {
 
     // console.log(singleIcon.name);
     // console.log(name);
+
     $('.icons-container').append(`
     <div class="single-icon-container">
         <i class="${family} ${prefix}${name}" style="color:${colorPosition}"></i>
@@ -178,9 +180,22 @@ icons.forEach( (singleIcon) => {
     </div>
         `);
 
+
+
+
+        // console.log(singleIcon.name);
+
+        // $('.icons-container').append(`
+        // <div class="single-icon-container">
+        //     <i class="${singleIcon.family} ${singleIcon.prefix}${singleIcon.name}" style="color:${colorPosition}"></i>
+        //     <p>${singleIcon.name}</p>
+        // </div>
+        //     `);
+
 });
 
 
+// Popolare le options della select dinamicamente
 
 
 
